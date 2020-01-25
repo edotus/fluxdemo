@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  labels:
+    ingress: nginx
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: fmep.cmcloudlab1337.info
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - fmep.cmcloudlab1337.info
+    secretName: fmep-tls
+  rules:
+  - host: fmep.cmcloudlab1337.info
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: 8080
+
+---
