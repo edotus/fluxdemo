@@ -16,6 +16,13 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
+# Need to add the configuration here to work around a flux issue.
+data:
+  use-proxy-protocol: "true"
+  log_format: main '$http_x_forwarded_for - $remote_user [$time_local] '
+                 '"$request" $status $body_bytes_sent "$http_referer" '
+                 '"$http_user_agent"' ;
+
 
 ---
 kind: ConfigMap
