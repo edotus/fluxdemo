@@ -5,7 +5,7 @@ metadata:
   labels:
     ingress: nginx
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: fmep.cmcloudlab234.info
+    external-dns.alpha.kubernetes.io/hostname: fmep.cmcloudlab371.info
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - fmep.cmcloudlab234.info
+    - fmep.cmcloudlab371.info
     secretName: fmep-tls
   rules:
-  - host: fmep.cmcloudlab234.info
+  - host: fmep.cmcloudlab371.info
     http:
       paths:
       - path: /
