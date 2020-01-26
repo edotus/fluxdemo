@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - gorp.cmcloudlab271.info
+    - gorp.cmcloudlab1641.info
     secretName: fmep-tls
   rules:
-  - host: gorp.cmcloudlab271.info
+  - host: gorp.cmcloudlab1641.info
     http:
       paths:
       - path: /
