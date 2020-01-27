@@ -29,7 +29,8 @@ spec:
       - name: nginx
         image: nginx:latest
         ports:
-        - containerPort: 80
+        -name: nginx-port
+         containerPort: 80
         volumeMounts:
         - mountPath: /usr/share/nginx/html
           name: web-content
@@ -39,6 +40,21 @@ spec:
           requests:
             memory: 512M
             cpu: .5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: nginx-port
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: nginx-port
+          periodSeconds: 5
+        startupProbe:
+          httpGet:
+            path: /
+            port: nginx-port
+          periodSeconds: 5
       volumes:
       - name: web-content
         emptyDir: {}
