@@ -5,7 +5,7 @@ metadata:
   labels:
     ingress: nginx
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: fmep.otusloadtesting.com
+    external-dns.alpha.kubernetes.io/hostname: m22.otusops.com
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - fmep.otusloadtesting.com
+    - m22.otusops.com
     secretName: fmep-tls
   rules:
-  - host: fmep.otusloadtesting.com
+  - host: m22.otusops.com
     http:
       paths:
       - path: /
